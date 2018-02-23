@@ -1,19 +1,21 @@
-<div [ngStyle] = "{'padding': '50px'}">
+<div [ngStyle] = "{'border-style': 'groove', 'border-width': '15px', 'padding': '50px'}">
 
-    <div [ngStyle] = "{'border-style': 'groove', 'border-width': '15px', 'width': '500px', 'height': '1000px', 'padding': '20px'}">
+    <div [ngStyle] = "{'width': '500px', 'padding': '20px'}">
 
     <h1> GitHub Searcher </h1>
         <input type="text" [(ngModel)] = "search" />
         <button type="button" (click)="this.getApi()">Return values</button>
-        <div>
+        
+       
+        <div [ngStyle] = "{'padding': '20px'}">
         <img src={{apiData[0].owner.avatar_url}} />
         </div>
         <ul *ngFor = "let data of apiData" [ngStyle] = "{'list-style': 'none'}">
             <li>{{data.name}} </li>
             <li>
-                <button>
-                    <a href = {{data.html_url}} target="_blank">Check it out</a>
-                </button>
+                
+                    <a href = {{data.html_url}} target="_blank"> <button>Check it out</button></a>
+               
             </li>
         </ul>
     </div>
